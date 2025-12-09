@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Eventos</title>
+
+  <!-- Fonts e Ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS Externo (mesclado com o do login) -->
+  <link rel="stylesheet" href="src/styles/eventos.css">
+</head>
+<body>
+
+  <header>
+    <nav id="navbar">
+      <a href="index.html">
+        <img src="src/img/Amigos Solidários.png" alt="Amigos Solidários" class="nav_img">
+      </a>
+      <ul id="nav_list">
+        <li class="nav-item active"><a href="eventos.html">Eventos</a></li>
+        <li class="nav-item"><a href="atualizacoes.html">Atualizações</a></li>
+        <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- Formulário de Novo Evento -->
+    <div class="form-card">
+      <h2><i class="fas fa-plus-circle"></i> Adicionar Novo Evento</h2>
+      <form id="eventoForm">
+        <div class="form-group">
+          <label for="texto">Texto do Evento *</label>
+          <input type="text" name="texto" id="texto" placeholder="Digite a descrição do evento..." required>
+        </div>
+
+        <div class="form-group">
+          <label for="file-1">Imagem do Evento</label>
+          <input type="file" name="file-1" id="file-1" accept="image/*">
+          <small style="color: var(--gray-600);">Deixe em branco se estiver apenas editando o texto.</small>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i>
+            <span id="btnText">Salvar Evento</span>
+          </button>
+          <button type="button" id="cancelEdit" class="btn btn-edit" style="display: none;">
+            <i class="fas fa-times"></i> Cancelar Edição
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Lista de Eventos -->
+    <h2><i class="fas fa-list-ul"></i> Eventos Cadastrados</h2>
+    <div id="eventos">
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>Carregando eventos...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Externo -->
+  <script src="src/scripts/eventos.js" defer></script>
+</body>
+</html>

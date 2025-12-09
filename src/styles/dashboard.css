@@ -1,0 +1,360 @@
+/* ============================================= */
+/*               DASHBOARD - ESTILOS              */
+/* ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #f9fafb, #e5e7eb);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* Navegação (assumindo que já tem estilo no site) */
+header {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+
+
+#navbar {
+    display: flex;
+    align-items: center;
+    padding: 1rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav_img {
+    height: 70px;
+    margin-right: 100px;
+}
+
+#nav_list {
+    display: flex;
+    align-items: center;
+
+    /* Alinha verticalmente os itens da lista */
+    gap: 2rem;
+    list-style: none;
+    width: 100%;
+    /* Faz a lista ocupar toda a largura disponível */
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: var(--gray-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-item.active a,
+.nav-item a:hover {
+    color: var(--primary);
+}
+
+.nav-item a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-item.active a::after,
+.nav-item a:hover::after {
+    width: 100%;
+}
+
+/* Cor da aba ativa */
+.nav-item.active a {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+:root {
+    --primary: #ff0452;
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --success-color: #4cc9f0;
+    --danger-color: #f72585;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+
+/* Botão recarregar */
+.refresh-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20vh 4rem 2rem 0;
+}
+
+.btn-refresh {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #4f46e5;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+    transition: all 0.3s;
+}
+
+.btn-refresh:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+}
+
+/* Seções de formulários */
+.form-section {
+    margin-bottom: 4rem;
+}
+
+
+
+.badge {
+    margin-left: 1rem;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.card-header h3 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #111827;
+}
+
+.card-body {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.info-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.info-line.message {
+    align-items: flex-start;
+}
+
+.info-line.message i {
+    margin-top: 0.125rem;
+}
+
+.email-chip {
+    background: #f3f4f6;
+    color: #1f2937;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #9ca3af;
+    padding: 3rem 0;
+    font-size: 1.1rem;
+}
+
+/* Loading e erro */
+.loading {
+    text-align: center;
+    padding: 3rem 0;
+    color: #6b7280;
+}
+
+.loading i {
+    width: 3rem;
+    height: 3rem;
+    animation: spin 1s linear infinite;
+}
+
+.error-msg {
+    text-align: center;
+    color: #ef4444;
+    font-weight: 600;
+    padding: 2rem;
+}
+
+/* Seção de envio de e-mail */
+.email-section {
+    margin: 4rem auto;
+    /* centraliza horizontalmente */
+    max-width: 1200px;
+    /* tamanho que você queria */
+    width: 100%;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.email-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.email-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.email-grid label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.email-grid input,
+.email-grid textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.email-grid input:focus,
+.email-grid textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.email-actions {
+    margin-top: 1.5rem;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-send-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(to right, #ec4899, #e11d48);
+    color: white;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(236, 72, 153, 0.4);
+    transition: all 0.3s;
+}
+
+.btn-send-email:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #db2777, #be123c);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-title h1 {
+        font-size: 2rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .email-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #nav_list {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Animação de loading */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="src/styles/fale_conosco.css">
     <link rel="stylesheet" href="src/styles/navbar.css">
     <!----------->
-    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    <!-- Substituindo o kit por CDN para evitar erro 403 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 </head>
@@ -47,50 +48,41 @@
     </nav>
   </header>
     <section class="contact-section">
-        <div class="contact-container">
-            <div class="contact-image">
-                <img src="src/img/medico.jpeg" alt="">
-            </div>
+    <div class="contact-container">
+        <div class="contact-image">
+            <img src="src/img/medico.jpeg" alt="">
+        </div>
 
-            <div class="contact-form-area">
-                <h1>Fale Conosco</h1>
-                <form class="formulario-voluntario" action="https://formspree.io/f/xblkdjge" method="POST">
-                    <div class="form-group">
-                        <label>Nome Completo</label>
-                        <input type="text" name="nome" placeholder="Nome Completo" required>
-                    </div>
-                    <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" name="email" placeholder="Endereço de e-mail" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Mensagem</label>
-                        <textarea name="mensagem" placeholder="Escreva sua Mensagem" required></textarea>
-                    </div>
-                    <input type="text" name="_gotcha" style="display:none">
-                    <input type="hidden" name="_captcha" value="true">
-                    <input type="hidden" name="_next"
-                        value="https://ryanmosc.github.io/Trabalho-PI-ONG-VolunatriosDaSaude/lp_ong/fale_conosco.html">
+        <div class="contact-form-area">
+            <h1>Fale Conosco</h1>
+            <form id="fale-conosco-form" method="POST">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" name="nomeCompleto" placeholder="Nome Completo" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email" placeholder="Endereço de e-mail" required>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea name="mensagem" placeholder="Escreva sua Mensagem" required></textarea>
+                </div>
+                <button type="submit" class="btn-formulario">Nos Contate</button>
+            </form>
 
-                    <button type="submit" class="btn-formulario">Nos Contate</button>
-                </form>
-
-                <div class="contact-info">
-                    <p><strong>Contato</strong><br>centrovoluntariospedregulho@gmail.com</p>
-                    <p><strong>Local</strong><br>R. Tenente Salviano,125, centro - Pedregulho-Sp</p>
-                    <div class="social-icons">
-                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-                                alt="WhatsApp"></a>
-                        <a href="https://facebook.com/voluntariospedregulho" target="_blank"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                                alt="Facebook"></a>
-                        <a href="https://instagram.com/voluntariosdasaude36" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                                alt="Instagram"></a>
-                    </div>
+            <div class="contact-info">
+                <p><strong>Contato</strong><br>atendimento@voluntariosdasaude.com.br</p>
+                <p><strong>Local</strong><br>R. Tenente Salviano,125, centro - Pedregulho-Sp</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/voluntariospedregulho" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/voluntariosdasaude36" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="site-footer">
         <hr class="footer-divider">
@@ -112,15 +104,13 @@
                     <p class="social-links-title">Acompanhe nossas redes sociais</p>
                     <div class="social-icons">
                         <a href="https://wa.me/SEUNUMERO" target="_blank" rel="noopener noreferrer">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="https://facebook.com/voluntariospedregulho" target="_blank" rel="noopener noreferrer">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                                alt="Facebook">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="https://instagram.com/voluntariosdasaude36" target="_blank" rel="noopener noreferrer">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                                alt="Instagram">
+                            <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
@@ -148,4 +138,8 @@
     <script src="src/scripts/navbar.js"></script>
     <script src="src/scripts/fale_conosco.js"></script>
     <script src="src/scripts/animacao.js"></script>
+
+    <!-- INÍCIO DO SCRIPT DE CONSUMO DA API (inline, sem necessidade de arquivo externo) -->
+ 
 </body>
+</html>

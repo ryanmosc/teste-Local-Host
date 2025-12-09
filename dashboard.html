@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard • Formulários Recebidos</title>
+
+  <!-- Ícones Feather -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Nosso CSS separado -->
+  <link rel="stylesheet" href="src/styles/dashboard.css" />
+</head>
+
+<body>
+  <header>
+    <nav id="navbar">
+      <a href="index.html"><img src="src/img/Amigos Solidários.png" alt="Amigos Solidários" class="nav_img"></a>
+      <ul id="nav_list">
+        <li class="nav-item"><a href="eventos.html">Eventos</a></li>
+        <li class="nav-item"><a href="atualizacoes.html">Atualizações</a></li>
+        <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+    <!-- Botão Recarregar -->
+    <div class="refresh-button-container">
+      <button onclick="carregarFormularios()" class="btn-refresh">
+        <i data-feather="refresh-cw"></i>
+        Recarregar Formulários
+      </button>
+    </div>
+
+    <!-- Lista de Formulários -->
+    <div id="lista"></div>
+
+    <!-- Enviar Email -->
+    <section class="email-section">
+      <h2>
+        <i data-feather="send"></i>
+        Enviar Resposta por E-mail
+      </h2>
+
+      <div class="email-grid">
+        <div>
+          <label>Destinatário</label>
+          <input type="email" id="emailDestino" placeholder="exemplo@dominio.com" />
+        </div>
+        <div>
+          <label>Assunto</label>
+          <input type="text" id="assunto" placeholder="Ex: Agradecemos seu interesse!" />
+        </div>
+        <div class="full-width">
+          <label>Mensagem</label>
+          <textarea id="mensagem" rows="6" placeholder="Escreva aqui a resposta..."></textarea>
+        </div>
+      </div>
+
+      <div class="email-actions">
+        <button onclick="enviarEmail()" class="btn-send-email">
+          <i data-feather="mail"></i>
+          Enviar E-mail
+        </button>
+      </div>
+    </section>
+  </div>
+
+  
+    <script src="src/scripts/dashboard.js"></script>
+</body>
+</html>

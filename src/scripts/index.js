@@ -137,3 +137,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+//
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch('https://api.voluntariosdasaude.com.br/api/gerencia/eventos');
+    if (!response.ok) {
+      throw new Error('Erro ao buscar eventos da API');
+    }
+    const eventos = await response.json();
+    const eventoConteudo = document.getElementById('evento-conteudo');
+    
+    // Clear existing content
+    eventoConteudo.innerHTML = '';
+    
+    // Create event cards dynamically
+    eventos.forEach(evento => {
+      const eventoCard = document.createElement('div');
+      eventoCard.className = 'evento-card';
+      
+      const img = document.createElement('img');
+      img.src = evento.imagem;
+      img.alt = evento.texto;
+      img.onerror = () => {
+        img.src = 'adicionais/img_eventos/placeholder.png'; // Fallback image if URL fails
+      }; 
+      
+      const texto = document.createElement('p');
+      texto.textContent = evento.texto;
+      
+      const data = document.createElement('span');
+      data.className = 'data';
+      data.textContent = new Date(evento.dataCriacao).toLocaleDateString('pt-BR');
+      
+      eventoCard.appendChild(img);
+      eventoCard.appendChild(texto);
+      eventoCard.appendChild(data);
+      eventoConteudo.appendChild(eventoCard);
+    });
+  } catch (error) {
+    console.error('Erro ao carregar eventos:', error);
+    const eventoConteudo = document.getElementById('evento-conteudo');
+    eventoConteudo.innerHTML = '<p>Erro ao carregar eventos. Tente novamente mais tarde.</p>';
+  }
+});

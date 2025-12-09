@@ -62,7 +62,7 @@
                 </p>
             </div>
 
-            <form class="donation-form" action="https://formspree.io/f/xzzvdbrr" method="POST">
+            <form class="donation-form" id="donation-form">
                 <label for="frequency">Escolha a periodicidade e o valor da doação:</label>
                 <select id="frequency" name="frequency">
                     <option value="unica">Única</option>
@@ -82,7 +82,7 @@
                     <img src="" alt="QR Code de Doação" id="qrcode-img" style="max-width: 128px;">
                 </div>
 
-                <div class="mini-form" id="mini-form">
+                <div class="mini-form" id="mini-form" style="display: none;">
                     <label for="full-name">Nome completo:</label>
                     <input type="text" id="full-name" name="full_name" placeholder="Seu nome" required>
 
@@ -90,7 +90,8 @@
                     <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
 
                     <label for="text">Mensagem: </label>
-                    <input type="text" id="text" name="text" placeholder="Escreva o por que deseja ser mensalista" required>
+                    <input type="text" id="text" name="text" placeholder="Escreva o por que deseja ser mensalista"
+                        required>
 
                     <button type="submit" class="btn-formulario">Enviar</button>
                 </div>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Atualizações</title>
+
+  <!-- Fonts e Ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS Unificado -->
+  <link rel="stylesheet" href="src/styles/atualizacoes.css">
+</head>
+<body>
+
+  <header>
+    <nav id="navbar">
+      <a href="index.html">
+        <img src="src/img/Amigos Solidários.png" alt="Amigos Solidários" class="nav_img">
+      </a>
+      <ul id="nav_list">
+        <li class="nav-item"><a href="eventos.html">Eventos</a></li>
+        <li class="nav-item active"><a href="atualizacoes.html">Atualizações</a></li>
+        <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container updates-container">
+    <h1>Gerenciar Atualizações</h1>
+
+    <div class="grid-container">
+      <!-- Formulário -->
+      <div class="form-section">
+        <h2>Adicionar Nova Atualização</h2>
+        <form id="atualizacaoForm">
+          <div class="form-group">
+            <label for="texto">Texto da atualização *</label>
+            <input type="text" id="texto" name="texto" placeholder="Ex: Hoje realizamos uma ação incrível no bairro..." required>
+          </div >
+
+          <div>
+            <label for="imagem">Imagem (opcional)</label>
+            <input type="file" id="imagem" name="file-1" accept="image/*">
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="publicar">
+              <span id="btnText">Publicar Atualização</span>
+            </button>
+            <button type="button" id="cancelEdit" class="btn btn-edit" style="display: none;">
+              Cancelar Edição
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Lista de Atualizações -->
+      <div class="list-section">
+        <h2>Atualizações Cadastradas</h2>
+        <div id="atualizacoes"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/scripts/atualizacoes.js" defer></script>
+</body>
+</html>
